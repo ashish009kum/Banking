@@ -1,0 +1,26 @@
+<% layout('./layouts/layouts') %> 
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 style="text-transform: capitalize;">
+                    <%= t.username %> All transactions
+                </h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <% if(t.transactions.length > 0) { %>
+                    <% for(let c of t.transactions) {%>
+                        <li class="list-group-item" style="text-transform: capitalize;">
+                          <%= c.Description %> <b>-----</b> <i><%= c.comment %></i> <b>----- <%= c.Date %></b>
+                        </li>
+                        <% } %>
+                <% } else { %>
+                    <li class="list-group-item" style="text-transform: capitalize;">
+                        Sorry!!!! No transactions Yet........
+                    </li>
+                <% } %>    
+            </ul>
+            <div class="card-body">
+                <a class="btn btn-success" href="/customer/<%= t._id %>">Back</a>
+              </div>
+        </div>
+    </div>

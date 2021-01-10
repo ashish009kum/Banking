@@ -1,0 +1,32 @@
+<% layout("./layouts/layouts") %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="card">
+                    <img src="<%= t.avatar %> " class="card-img-top " alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-transform: capitalize;"><b>
+                                <%= t.username %>
+                            </b></h5>
+                        <a href="mailto:<%= t.email %>" class="card-text text-muted" style="text-decoration: none;"><i class="fas fa-envelope" style="transform: rotate(-5deg);"></i> <%= t.email %>
+                        </a>
+                        <p class="card-text text-muted"><i class="fas fa-phone"></i>
+                            <%= t.contact %>
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Account Balance <b>$<%= t.Balance %></b></li>
+                        <li class="list-group-item text-muted"><b>About: </b>
+                            <%= t.about %>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a class="btn btn-outline-danger" href="/customer/<%= t._id %>/history">Transfer history</a>
+                        <a class="btn btn-outline-success mt-1 mt-md-0" href="/customer/<%= t._id %>/transfer">Transfer
+                            Money</a>
+                        <a class="btn btn-outline-primary mt-1 mt-sm-0" href="/customer">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

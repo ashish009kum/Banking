@@ -1,0 +1,59 @@
+<% layout('./layouts/layouts') %> 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Tranfer Money</h1>
+                    </div>
+                    <div class="card-body">
+                        <form action="/customer" method="POST" class="needs-validation" novalidate>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="form">From: </label>
+                                <select class="form-select" name="From" id="from">
+                                    <% for(let c of cus) { %>
+                                        <option style="text-transform: capitalize;" value="<%= c.username %>"
+                                            <%=c.username===cs.username?'selected':'disabled' %> ><%= c.username %>
+                                        </option> <!-- Terenary Operator added so that one cannot select other -->
+                                        <% } %>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="cati">Transfer to:</label>
+                                <select class="form-select" name="username" id="cati">
+                                    <% for(let c of cus) { %>
+                                        <option style="text-transform: capitalize;" value="<%= c.username %>"
+                                            <%=c.username===cs.username?'disabled':'' %> ><%= c.username %>
+                                        </option> <!-- Terenary Operator added so that one cannot select themselves -->
+                                        <% } %>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Amount $</span>
+                                <input type="number" class="form-control" name="Amount" required min="0">
+                                <span class="input-group-text">.00</span>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                                  <div class="invalid-feedback">
+                                    Enter Amount
+                                  </div>
+                            </div>
+                            <div class="input-group mb-3 ">
+                                <label class="input-group-text" for="com">Comment</label>
+                                <input type="text" class="form-control " name="comment" id="com" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                                  <div class="invalid-feedback">
+                                    Please give a comment
+                                  </div>
+                            </div>
+                            <button class="btn btn-success">Transfer</button>
+                            <a class="btn btn-dark" href="/customer">Back to Home</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
