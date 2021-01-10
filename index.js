@@ -9,7 +9,7 @@ const AppError = require("./views/AppError");
 //Ashish123
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost:27017/banking", { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect("mongodb+srv://database:Ashish123@cluster0.sipku.mongodb.net/Bank?retryWrites=true&w=majority" || "mongodb://localhost:27017/banking", { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => {
         console.log("connected");
     })
