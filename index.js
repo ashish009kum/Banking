@@ -7,7 +7,7 @@ const Customer = require("./models/user");
 const Transaction = require("./models/transaction");
 const AppError = require("./views/AppError");
 //Ashish123
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost:27017/banking", { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => {
@@ -130,4 +130,6 @@ app.use((err, req, res, next) => {
     res.status(status).render("error",{err});
 });
 
-app.listen(PORT, console.log("Welcome to the Server"));
+app.listen(PORT, (req, res)=>{
+    console.log("Welcome to the Server")}
+    );
