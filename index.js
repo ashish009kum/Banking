@@ -7,7 +7,7 @@ const Customer = require("./models/user");
 const Transaction = require("./models/transaction");
 const Datab = require("./models/all");
 const AppError = require("./views/AppError");
-//Ashish123
+
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect("mongodb+srv://database:Ashish123@cluster0.sipku.mongodb.net/Bank?retryWrites=true&w=majority" || "mongodb://localhost:27017/banking", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false })
@@ -98,7 +98,7 @@ app.post("/customer", wrapAsync(async(req, res, next) => {
         await t.save() //If we want to use populate we need to use this
         cus.transactions.push(f);
         await cus.save();
-        const d = new Datab({ Date: Date(), transaction: `${b.username} sends $${Amount} to ${cus.username}` });
+        const d = new Datab({ Date: Date(), payment: `${b.username} sends $${Amount} to ${cus.username}` });
         await d.save();
         b.transactions.push(t);
         await b.save();
@@ -115,7 +115,6 @@ app.post("/customer", wrapAsync(async(req, res, next) => {
 
 app.get("/transactions", async(req, res) => {
     const a = await Datab.find({});
-    console.log(a);
     res.render("transactions", { a });
 });
 

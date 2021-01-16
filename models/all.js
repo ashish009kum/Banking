@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 
 const databSchema = new mongoose.Schema({
     Date: Date,
-    transaction: String
+    payment: String
 });
 
 const Datab = mongoose.model("Datab", databSchema);
